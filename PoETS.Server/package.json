@@ -1,0 +1,23 @@
+{
+  "name": "poets-server",
+  "version": "1.0.0",
+  "description": "Fetching server for PoE Thread Search",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "poe",
+    "node",
+    "js",
+    "fetch",
+    "express",
+    "json"
+  ],
+  "author": "bigtoaster64",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
