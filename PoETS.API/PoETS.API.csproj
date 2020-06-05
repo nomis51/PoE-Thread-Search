@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.23" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PoETS.Data\PoETS.Data.csproj" />
+    <ProjectReference Include="..\PoETS.SearchEngine\PoETS.SearchEngine.csproj" />
+  </ItemGroup>
+
+</Project>
