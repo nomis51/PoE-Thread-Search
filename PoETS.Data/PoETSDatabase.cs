@@ -9,20 +9,15 @@ using System.Threading.Tasks;
 
 namespace PoETS.Data {
     public class PoETSDatabase : IPoETSDatabase {
-        #region Singleton
-        private static PoETSDatabase _instance = null;
-        public static PoETSDatabase Instance() {
-            if (_instance == null) {
-                _instance = new PoETSDatabase();
-            }
-
-            return _instance;
-        }
-        #endregion
-
         private readonly PoETSDbContext _context;
-        private PoETSDatabase() {
+        public PoETSDatabase() {
             _context = new PoETSDbContext();
+
+            Init();
+        }
+
+        private async void Init() {
+            await _context.Database.EnsureCreatedAsync();
         }
 
         public async Task<List<T>> Get<T>() where T : Model {
@@ -33,10 +28,14 @@ namespace PoETS.Data {
             return entities;
         }
 
+        public async Task<List<T>> Get<T>(Predicate<T> predicate) where T : Model {
+            var entities = (await Get<T>()).FindAll(predicate);
+
+            return entities;
+        }
+
         public async Task<T> Get<T>(int id) where T : Model {
-            _context.Lock.WaitOne();
             var entity = (await Get<T>()).Find(t => t.Id == id);
-            _context.Lock.ReleaseMutex();
 
             return entity;
         }
@@ -48,6 +47,14 @@ namespace PoETS.Data {
             _context.Lock.ReleaseMutex();
 
             return entity;
+        }
+
+        public async Task<List<T>> Insert<T>(List<T> entities) where T : Model {
+            foreach (var entity in entities) {
+                await Insert(entity);
+            }
+
+            return entities;
         }
 
         public async Task<T> Update<T>(T entity) where T : Model {
