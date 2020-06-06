@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoETS.Application", "PoETS.Application\PoETS.Application.csproj", "{4CEA0382-C0D1-485F-BB5F-E76B7991C38C}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoETS.Data", "PoETS.Data\PoETS.Data.csproj", "{56ED773B-E4B2-4AD5-AE55-50350C4D8741}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoETS.API", "PoETS.API\PoETS.API.csproj", "{199F4053-B01E-480D-A0CD-431548FEA6D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoETS.SearchEngine", "PoETS.SearchEngine\PoETS.SearchEngine.csproj", "{CA21B4A5-7F09-463F-ACC4-6986927B6767}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PoETS.SearchEngine", "PoETS.SearchEngine\PoETS.SearchEngine.csproj", "{CA21B4A5-7F09-463F-ACC4-6986927B6767}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoETS.Application", "PoETS.Application\PoETS.Application.csproj", "{EC562781-04A2-408B-8228-8C88A0A5ED0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4CEA0382-C0D1-485F-BB5F-E76B7991C38C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4CEA0382-C0D1-485F-BB5F-E76B7991C38C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4CEA0382-C0D1-485F-BB5F-E76B7991C38C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4CEA0382-C0D1-485F-BB5F-E76B7991C38C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{56ED773B-E4B2-4AD5-AE55-50350C4D8741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{56ED773B-E4B2-4AD5-AE55-50350C4D8741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56ED773B-E4B2-4AD5-AE55-50350C4D8741}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{CA21B4A5-7F09-463F-ACC4-6986927B6767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA21B4A5-7F09-463F-ACC4-6986927B6767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA21B4A5-7F09-463F-ACC4-6986927B6767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC562781-04A2-408B-8228-8C88A0A5ED0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC562781-04A2-408B-8228-8C88A0A5ED0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC562781-04A2-408B-8228-8C88A0A5ED0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC562781-04A2-408B-8228-8C88A0A5ED0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
