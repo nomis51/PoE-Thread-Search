@@ -1,0 +1,55 @@
+{
+  "PoETSServer": "https://quiet-lowlands-02528.herokuapp.com/",
+  "DatabaseFileName": "data.db",
+  "DatabaseFilePath": ".\\",
+  "NoDatabase": true,
+  "Synonyms": [
+    {
+      "Words": [
+        "Necromancer",
+        "Necro",
+        "Nec"
+      ]
+    },
+    {
+      "Words": [
+        "bet",
+        "Tomato"
+      ]
+    }
+  ],
+  "NbPostPerPage": 10,
+  "PoEWebSiteForumUrlTemplate": "https://www.pathofexile.com/forum/view-thread/$threadId/page/$page$id",
+  "PostsHtmlTableXPath": "//table[@class='forumTable forumPostListTable']",
+  "PostAuthorHtmlXPath": ".//div[@class='posted-by']",
+  "PostAvatarHtmlXPath": ".//img[@alt='Avatar']",
+  "ForumThreadTitleHtmlXPath": "//h1[@class='topBar last layoutBoxTitle']",
+  "PostContentHtmlXPath": ".//div[@class='content']",
+  "PostTimeHtmlXPath": ".//div[@class='posted-by']",
+  "ForumThreadPaginationHtmlXPath": "//div[@class='pagination']",
+  "SearchFuzziness": 3,
+  "LoadingMessages": [
+    "Looking for beast for Einhar",
+    "Extracting Sulphite Deposite",
+    "Building Blight towers",
+    "Trying to 6L a Tabula Rasa",
+    "Nerfing Meta builds",
+    "Activating Legion monoliths",
+    "Alt spamming an Elder helmet",
+    "Printing currency",
+    "Creating a meme build",
+    "Whispering AFK players",
+    "Dropping a Mirror",
+    "Price checking a 1 chaos item",
+    "Defeating the Awakener",
+    "Carrying people in Cortex",
+    "Doing AFK Blight maps",
+    "Zooming throught Burial Chambers",
+    "Dying in The Twilight Strand in Hardcore League",
+    "Avoiding Delirium explosions",
+    "Doing Simulacrum",
+    "Opening Beaches",
+    "Trading Portal Scrolls",
+    "Chilling in Karui Shore"
+  ]
+}
