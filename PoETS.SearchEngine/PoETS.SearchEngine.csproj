@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AhoCorasick" Version="2.0.46" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PoETS.Data\PoETS.Data.csproj" />
+  </ItemGroup>
+
+</Project>
