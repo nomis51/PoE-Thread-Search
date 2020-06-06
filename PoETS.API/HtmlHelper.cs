@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace PoETS.API {
     public class HtmlHelper {
@@ -20,7 +21,7 @@ namespace PoETS.API {
             return Convert.ToInt32(postAnchor.Attributes["id"].Value.Substring(1));
         }
 
-        public List<Post> ParsePage(HtmlDocument doc, int page) {
+        public List<Post> ParsePage(HtmlDocument doc, int page, int threadId) {
             var postsElement = doc.DocumentNode.SelectSingleNode(ConfigManager.GetConfig().PostsHtmlTableXPath);
 
             List<Post> posts = new List<Post>();
@@ -29,7 +30,7 @@ namespace PoETS.API {
                 if (p.InnerText.Trim().Replace("\\n", "").Length > 0) {
                     Player author = ParseAuthor(p);
                     int id = ParsePostId(p);
-                    Post post = ParsePost(p, page, author);
+                    Post post = ParsePost(p, page, threadId, author);
                     post.PostId = id;
 
                     posts.Add(post);
@@ -82,6 +83,7 @@ namespace PoETS.API {
 
             return lastPage;
         }
+
         public Player ParseAuthor(HtmlNode node) {
             var postInfoElement = node.SelectSingleNode(ConfigManager.GetConfig().PostAuthorHtmlXPath);
             var postInfoText = postInfoElement.InnerText;
@@ -107,13 +109,13 @@ namespace PoETS.API {
             Player author = ParseAuthor(tableElement.ChildNodes[1]);
 
             return new ForumThread() {
-                Id = threadId,
+                ThreadId = threadId,
                 Name = title,
                 Author = author
             };
         }
 
-        public Post ParsePost(HtmlNode node, int page, Player author) {
+        public Post ParsePost(HtmlNode node, int page, int threadId, Player author) {
             var contentElement = node.SelectSingleNode(ConfigManager.GetConfig().PostContentHtmlXPath);
             var contentText = contentElement.InnerText;
 
@@ -128,9 +130,10 @@ namespace PoETS.API {
 
             var post = new Post() {
                 Content = contentText,
-                Page = page,
+                PageNo = page,
                 Author = author,
-                Time = time
+                Time = time,
+                ThreadId = threadId
             };
 
             return post;
@@ -156,11 +159,16 @@ namespace PoETS.API {
 
             var docs = new Dictionary<int, HtmlDocument>();
 
+            Mutex _lock = new Mutex();
+
             foreach (var r in response) {
                 var doc = new HtmlDocument();
                 doc.LoadHtml(r.Value);
-                int page = Convert.ToInt32(r.Key.LastIndexOf('/') + 1);
+                int page = Convert.ToInt32(r.Key.Substring(r.Key.LastIndexOf('/') + 1));
+
+                _lock.WaitOne();
                 docs.Add(page, doc);
+                _lock.ReleaseMutex();
             }
 
             return docs;
